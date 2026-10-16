@@ -1,58 +1,243 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🏢 GESTION_PATRIMOINE
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+**Application web de gestion du patrimoine et des inventaires**
 
-## About Laravel
+GESTION_PATRIMOINE est une application web conçue pour faciliter la gestion, le suivi et l'organisation du patrimoine matériel d'un établissement. Elle permet de centraliser les informations relatives aux articles, aux stocks, aux affectations et aux mouvements, tout en améliorant la traçabilité des opérations.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Le projet repose sur Laravel et Filament pour proposer une interface d'administration structurée, PostgreSQL pour le stockage des données et un système de gestion des rôles pour contrôler les accès selon les responsabilités des utilisateurs.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🎯 Objectifs du projet
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- Centraliser les informations relatives au patrimoine et aux articles.
+- Faciliter le suivi des quantités disponibles, utilisées et neuves.
+- Gérer les affectations des articles aux différents espaces et services.
+- Assurer la traçabilité des mouvements et de l'historique des opérations.
+- Détecter les situations nécessitant une intervention grâce aux alertes.
+- Sécuriser l'accès aux fonctionnalités selon le rôle de chaque utilisateur.
+- Simplifier la consultation et l'administration des données.
 
-## Learning Laravel
+## 🧰 Technologies utilisées
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+| Technologie | Rôle |
+|---|---|
+| PHP 8.3 | Langage de programmation côté serveur |
+| Laravel 12 | Framework backend et logique métier |
+| Filament 4 | Interface d'administration |
+| PostgreSQL 14 | Système de gestion de base de données |
+| Tailwind CSS | Mise en forme de l'interface |
+| Spatie Laravel Permission | Gestion des rôles et des permissions |
+| Laravel Fortify | Fonctionnalités d'authentification |
+| Laravel Sail | Environnement de développement avec Docker |
+| WSL 2 / Ubuntu | Environnement Linux sous Windows |
+| Docker | Conteneurisation de l'application |
+| Redis | Mise en cache, selon la configuration |
+| DOMPDF | Génération de documents PDF |
+| Laravel Excel | Export et traitement de fichiers Excel |
+| Mail / SMTP | Envoi de notifications par e-mail |
+| Twilio | Envoi de notifications SMS |
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## ✨ Fonctionnalités principales
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+### 📦 Gestion des articles et du patrimoine
+- Création, consultation, modification et suppression des articles.
+- Suivi des quantités totales, neuves et utilisées.
+- Consultation des informations relatives à l'état et à la durée de vie des articles.
+- Organisation du patrimoine par catégories et emplacements.
 
-## Agentic Development
+### 📍 Gestion des emplacements
+- Organisation des articles par bâtiment, salle ou espace.
+- Suivi des affectations aux différents emplacements.
+- Consultation de la répartition du patrimoine dans l'établissement.
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+### 🔄 Gestion des affectations et des mouvements
+- Affectation des articles aux emplacements concernés.
+- Enregistrement des mouvements et consultation de leur historique.
+- Gestion des retours en stock et des réaffectations.
+- Prise en compte de l'état des articles lors des affectations.
 
-```bash
-composer require laravel/boost --dev
+### 🚨 Alertes et suivi
+- Détection des situations de stock faible ou épuisé.
+- Signalement des articles nécessitant une maintenance ou une réforme.
+- Notifications par e-mail et SMS selon la configuration de l'application.
 
-php artisan boost:install
+### 📊 Tableau de bord
+- Consultation des indicateurs de gestion.
+- Suivi de l'état du patrimoine.
+- Visualisation des informations utiles à la prise de décision.
+
+### 🔐 Gestion des utilisateurs et des permissions
+L'application prévoit différents niveaux d'accès :
+
+- **Administrateur :** administration générale et gestion des accès.
+- **Gestionnaire :** gestion du patrimoine, des articles et des opérations autorisées.
+- **Utilisateur :** accès aux fonctionnalités permises par son rôle.
+
+## 🏗️ Architecture du projet
+
+L'application suit une architecture organisée autour de Laravel :
+
+- **Interface utilisateur :** pages d'administration construites avec Filament et Tailwind CSS.
+- **Logique métier :** contrôleurs, modèles, services et règles de gestion Laravel.
+- **Persistance des données :** PostgreSQL avec les modèles Eloquent et les migrations.
+- **Authentification et autorisations :** mécanismes Laravel et gestion des permissions.
+- **Services complémentaires :** génération PDF, export Excel et notifications.
+
+## 📂 Structure du projet
+
+```text
+GESTION_PATRIMOINE/
+├── app/
+│   ├── Models/          # Modèles de données
+│   ├── Http/            # Contrôleurs et logique HTTP
+│   └── Filament/        # Ressources et pages d'administration
+├── bootstrap/           # Initialisation de Laravel
+├── config/              # Configuration de l'application
+├── database/
+│   ├── migrations/      # Structure de la base de données
+│   ├── seeders/         # Données initiales
+│   └── factories/       # Génération de données de test
+├── resources/            # Vues et ressources frontend
+├── routes/               # Définition des routes
+├── tests/                # Tests automatisés
+├── docker-compose.yml    # Orchestration Docker, si présent
+├── composer.json         # Dépendances PHP
+└── README.md             # Documentation du projet
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+*La structure exacte peut varier selon l'organisation des fichiers du dépôt.*
 
-## Contributing
+## ⚙️ Prérequis
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Avant de lancer le projet, assurez-vous de disposer de :
 
-## Code of Conduct
+- Git
+- PHP 8.3
+- Composer
+- PostgreSQL 14
+- Node.js et npm
+- Docker Desktop et WSL 2 si vous utilisez Laravel Sail
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## 🚀 Installation et lancement
 
-## Security Vulnerabilities
+### 1. Cloner le dépôt
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```bash
+git clone https://github.com/ayaro-ui/GESTION_PATRIMOINE.git
+cd GESTION_PATRIMOINE
+```
 
-## License
+### 2. Installer les dépendances
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```bash
+composer install
+npm install
+```
+
+### 3. Configurer l'environnement
+
+Copiez le fichier d'environnement :
+
+```bash
+cp .env.example .env
+```
+
+Configurez ensuite les paramètres de connexion à PostgreSQL dans `.env` :
+
+```env
+DB_CONNECTION=pgsql
+DB_HOST=127.0.0.1
+DB_PORT=5432
+DB_DATABASE=gestion_patrimoine
+DB_USERNAME=postgres
+DB_PASSWORD=
+```
+
+Adaptez ces paramètres à votre environnement local. Ne publiez jamais votre véritable fichier `.env`.
+
+### 4. Générer la clé de l'application
+
+```bash
+php artisan key:generate
+```
+
+### 5. Préparer la base de données
+
+Créez la base `gestion_patrimoine` dans PostgreSQL, puis exécutez :
+
+```bash
+php artisan migrate
+```
+
+Si le projet fournit des seeders et que vous souhaitez charger les données initiales :
+
+```bash
+php artisan db:seed
+```
+
+### 6. Lancer l'application
+
+Dans un premier terminal :
+
+```bash
+php artisan serve
+```
+
+Dans un deuxième terminal :
+
+```bash
+npm run dev
+```
+
+L'application Laravel est alors généralement accessible à l'adresse :
+
+http://127.0.0.1:8000
+
+Le panneau d'administration Filament est généralement accessible à :
+
+http://127.0.0.1:8000/admin
+
+Si le projet utilise Laravel Sail, suivez plutôt sa configuration Docker et les commandes définies dans le dépôt.
+
+## 🐳 Exécution avec Docker
+
+Si le dépôt contient une configuration Docker Compose fonctionnelle, vous pouvez lancer les services avec :
+
+```bash
+./vendor/bin/sail up -d
+```
+
+Pour consulter les conteneurs actifs :
+
+```bash
+docker compose ps
+```
+
+Pour arrêter l'environnement :
+
+```bash
+./vendor/bin/sail down
+```
+
+Les commandes exactes dépendent des services et des fichiers Docker présents dans le projet.
+
+## 🧪 Tests
+
+Pour exécuter les tests automatisés :
+
+```bash
+php artisan test
+```
+
+Assurez-vous que l'environnement de test et la base de données sont correctement configurés avant de lancer les tests.
+
+## 🔒 Sécurité
+
+- Les accès sont contrôlés selon les rôles et permissions.
+- Les identifiants et clés de services doivent rester dans les variables d'environnement.
+- Les opérations sensibles doivent être protégées par les autorisations appropriées.
+- L'authentification à deux facteurs doit être configurée et activée conformément aux fonctionnalités présentes dans le projet.
+
+
+## 📄 Licence
+
+Projet académique. 
