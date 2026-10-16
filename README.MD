@@ -1,4 +1,4 @@
-# 🏢 GESTION_PATRIMOINE
+# GESTION_PATRIMOINE
 
 **Application web de gestion du patrimoine et des inventaires**
 
@@ -6,7 +6,7 @@ GESTION_PATRIMOINE est une application web conçue pour faciliter la gestion, le
 
 Le projet repose sur Laravel et Filament pour proposer une interface d'administration structurée, PostgreSQL pour le stockage des données et un système de gestion des rôles pour contrôler les accès selon les responsabilités des utilisateurs.
 
-## 🎯 Objectifs du projet
+##  Objectifs du projet
 
 - Centraliser les informations relatives au patrimoine et aux articles.
 - Faciliter le suivi des quantités disponibles, utilisées et neuves.
@@ -16,7 +16,7 @@ Le projet repose sur Laravel et Filament pour proposer une interface d'administr
 - Sécuriser l'accès aux fonctionnalités selon le rôle de chaque utilisateur.
 - Simplifier la consultation et l'administration des données.
 
-## 🧰 Technologies utilisées
+##  Technologies utilisées
 
 | Technologie | Rôle |
 |---|---|
@@ -36,43 +36,43 @@ Le projet repose sur Laravel et Filament pour proposer une interface d'administr
 | Mail / SMTP | Envoi de notifications par e-mail |
 | Twilio | Envoi de notifications SMS |
 
-## ✨ Fonctionnalités principales
+##  Fonctionnalités principales
 
-### 📦 Gestion des articles et du patrimoine
+###  Gestion des articles et du patrimoine
 - Création, consultation, modification et suppression des articles.
 - Suivi des quantités totales, neuves et utilisées.
 - Consultation des informations relatives à l'état et à la durée de vie des articles.
 - Organisation du patrimoine par catégories et emplacements.
 
-### 📍 Gestion des emplacements
+###  Gestion des emplacements
 - Organisation des articles par bâtiment, salle ou espace.
 - Suivi des affectations aux différents emplacements.
 - Consultation de la répartition du patrimoine dans l'établissement.
 
-### 🔄 Gestion des affectations et des mouvements
+###  Gestion des affectations et des mouvements
 - Affectation des articles aux emplacements concernés.
 - Enregistrement des mouvements et consultation de leur historique.
 - Gestion des retours en stock et des réaffectations.
 - Prise en compte de l'état des articles lors des affectations.
 
-### 🚨 Alertes et suivi
+###  Alertes et suivi
 - Détection des situations de stock faible ou épuisé.
 - Signalement des articles nécessitant une maintenance ou une réforme.
 - Notifications par e-mail et SMS selon la configuration de l'application.
 
-### 📊 Tableau de bord
+###  Tableau de bord
 - Consultation des indicateurs de gestion.
 - Suivi de l'état du patrimoine.
 - Visualisation des informations utiles à la prise de décision.
 
-### 🔐 Gestion des utilisateurs et des permissions
+###  Gestion des utilisateurs et des permissions
 L'application prévoit différents niveaux d'accès :
 
 - **Administrateur :** administration générale et gestion des accès.
 - **Gestionnaire :** gestion du patrimoine, des articles et des opérations autorisées.
 - **Utilisateur :** accès aux fonctionnalités permises par son rôle.
 
-## 🏗️ Architecture du projet
+##  Architecture du projet
 
 L'application suit une architecture organisée autour de Laravel :
 
@@ -82,7 +82,7 @@ L'application suit une architecture organisée autour de Laravel :
 - **Authentification et autorisations :** mécanismes Laravel et gestion des permissions.
 - **Services complémentaires :** génération PDF, export Excel et notifications.
 
-## 📂 Structure du projet
+##  Structure du projet
 
 ```text
 GESTION_PATRIMOINE/
@@ -106,7 +106,7 @@ GESTION_PATRIMOINE/
 
 *La structure exacte peut varier selon l'organisation des fichiers du dépôt.*
 
-## ⚙️ Prérequis
+##  Prérequis
 
 Avant de lancer le projet, assurez-vous de disposer de :
 
@@ -117,7 +117,7 @@ Avant de lancer le projet, assurez-vous de disposer de :
 - Node.js et npm
 - Docker Desktop et WSL 2 si vous utilisez Laravel Sail
 
-## 🚀 Installation et lancement
+##  Installation et lancement
 
 ### 1. Cloner le dépôt
 
@@ -198,7 +198,7 @@ http://127.0.0.1:8000/admin
 
 Si le projet utilise Laravel Sail, suivez plutôt sa configuration Docker et les commandes définies dans le dépôt.
 
-## 🐳 Exécution avec Docker
+##  Exécution avec Docker
 
 Si le dépôt contient une configuration Docker Compose fonctionnelle, vous pouvez lancer les services avec :
 
@@ -220,7 +220,7 @@ Pour arrêter l'environnement :
 
 Les commandes exactes dépendent des services et des fichiers Docker présents dans le projet.
 
-## 🧪 Tests
+##  Tests
 
 Pour exécuter les tests automatisés :
 
@@ -230,7 +230,7 @@ php artisan test
 
 Assurez-vous que l'environnement de test et la base de données sont correctement configurés avant de lancer les tests.
 
-## 🔒 Sécurité
+##  Sécurité
 
 - Les accès sont contrôlés selon les rôles et permissions.
 - Les identifiants et clés de services doivent rester dans les variables d'environnement.
@@ -238,6 +238,6 @@ Assurez-vous que l'environnement de test et la base de données sont correctemen
 - L'authentification à deux facteurs doit être configurée et activée conformément aux fonctionnalités présentes dans le projet.
 
 
-## 📄 Licence
+##  Licence
 
 Projet académique. 
